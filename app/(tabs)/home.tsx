@@ -28,9 +28,17 @@ interface Product {
   type: string;
 }
 
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  profileImage: string;
+}
+
 export default function Home() {
   const router = useRouter();
 
+  const [user, setUser] = useState<User | null>(null);
   const [activeCategory, setActiveCategory] = useState<number>(0);
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -40,6 +48,21 @@ export default function Home() {
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
   const [profileImage, setProfileImage] = useState("");
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const data = await AsyncStorage.getItem("user");
+      if (!data) return;
+
+      const parsed: User = JSON.parse(data);
+
+      setUser(parsed);
+    };
+
+    loadUser();
+  }, []);
+
+  const userName = user?.name || "Guest User";
 
   const skeletonData: Product[] = Array.from({ length: 6 }).map((_, i) => ({
     _id: `skeleton-${i}`,
@@ -232,7 +255,9 @@ export default function Home() {
         </Text>
 
         <View className="bg-gray-800 px-5 py-1.5 rounded-lg self-end mt-2">
-          <Text className="text-white text-[10px] font-ibm_regular">Shop Now</Text>
+          <Text className="text-white text-[10px] font-ibm_regular">
+            Shop Now
+          </Text>
         </View>
       </View>
     </Pressable>
@@ -243,7 +268,7 @@ export default function Home() {
       <View className="flex-row justify-between items-center mt-2 px-5">
         <View>
           <Text className="text-gray-400 text-sm font-ibm_medium">Hello,</Text>
-          <Text className="text-3xl font-ibm_bold">Mandown</Text>
+          <Text className="text-3xl font-ibm_bold uppercase">{userName}{" "}</Text>
         </View>
 
         <Pressable

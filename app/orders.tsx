@@ -1,23 +1,23 @@
-import {
-  View,
-  Text,
-  FlatList,
-  ActivityIndicator,
-  Pressable,
-  Alert,
-  Linking,
-} from "react-native";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { BASE_URL } from "@/api/api";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Image } from "expo-image";
+import OrdersSkeleton from "@/componants/orders_skeleton";
 import { Ionicons } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  Linking,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Toast from "react-native-simple-toast";
-import OrdersSkeleton from "@/componants/orders_skeleton";
 
 export default function Orders() {
   const router = useRouter();
@@ -26,7 +26,6 @@ export default function Orders() {
   const [loading, setLoading] = useState(true);
   const [returnLoading, setReturnLoading] = useState<string | null>(null);
 
-  // ✅ ONLY ADDED → skeleton items
   const skeletonOrders = Array.from({ length: 4 }).map((_, i) => ({
     _id: `skeleton-${i}`,
   }));
@@ -150,7 +149,10 @@ export default function Orders() {
 
       <View className="flex-row items-center py-4 px-5 justify-between">
         <View className="flex-row items-center gap-5">
-          <Pressable onPress={() => router.back()} className="px-3 py-2 bg-gray-100 rounded-xl">
+          <Pressable
+            onPress={() => router.back()}
+            className="px-3 py-2 bg-gray-100 rounded-xl"
+          >
             <Ionicons name="chevron-back" size={24} color="black" />
           </Pressable>
           <Text className="text-2xl font-ibm_medium text-center">
@@ -170,6 +172,14 @@ export default function Orders() {
         keyExtractor={(item) => item._id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{}}
+        ListEmptyComponent={
+          !loading ? (
+            <View className="flex-1 items-center justify-center mt-20">
+              <Ionicons name="bag-outline" size={50} color="#9CA3AF" />
+              <Text className="text-gray-400 mt-4">No orders found</Text>
+            </View>
+          ) : null
+        }
         renderItem={({ item }) => {
           if (loading) return <OrdersSkeleton />;
 
