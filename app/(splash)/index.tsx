@@ -1,77 +1,82 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Dimensions } from "react-native";
 import { useRouter } from "expo-router";
+import Svg, { Path, Circle, Rect, Ellipse } from "react-native-svg";
+
+const { height } = Dimensions.get("window");
+
+function WomanSittingIllustration() {
+  return (
+    <Svg width="100%" height="100%" viewBox="0 0 375 380" fill="none" preserveAspectRatio="xMidYMid meet">
+      <Rect width="375" height="380" fill="#FFF6E8" />
+      <Rect x="80" y="30" width="200" height="300" rx="100" fill="#F0E4CC" />
+      <Rect x="240" y="40" width="5" height="80" rx="2.5" fill="#C8A870" />
+      <Path d="M208 40 Q242 78 276 40" fill="#F0BE50" />
+      <Path d="M218 50 Q242 76 266 50" fill="#E0AE40" />
+      <Ellipse cx="242" cy="42" rx="8" ry="4" fill="#D0A040" />
+      <Rect x="258" y="190" width="7" height="90" rx="3.5" fill="#8B6840" />
+      <Ellipse cx="256" cy="182" rx="18" ry="25" fill="#D4CC88" />
+      <Ellipse cx="246" cy="192" rx="12" ry="18" fill="#CCBE7A" />
+      <Ellipse cx="268" cy="195" rx="11" ry="16" fill="#C4B870" />
+      <Rect x="250" y="274" width="14" height="6" rx="3" fill="#7A5C30" />
+      <Rect x="58" y="210" width="5" height="50" rx="2.5" fill="#1A1A1A" />
+      <Rect x="88" y="210" width="5" height="50" rx="2.5" fill="#1A1A1A" />
+      <Rect x="54" y="205" width="42" height="9" rx="4.5" fill="#1A1A1A" />
+      <Rect x="56" y="148" width="42" height="9" rx="4.5" fill="#1A1A1A" />
+      <Rect x="58" y="154" width="5" height="56" rx="2.5" fill="#1A1A1A" />
+      <Rect x="88" y="154" width="5" height="56" rx="2.5" fill="#1A1A1A" />
+      <Rect x="65" y="160" width="12" height="48" rx="6" fill="#1A1A1A" />
+      <Rect x="65" y="205" width="12" height="48" rx="6" fill="#1A1A1A" />
+      <Ellipse cx="60" cy="256" rx="14" ry="7" fill="#2E5DD4" />
+      <Ellipse cx="77" cy="255" rx="14" ry="7" fill="#2E5DD4" />
+      <Path d="M70 170 Q108 155 130 170 L127 218 Q108 226 76 218 Z" fill="#E8622A" />
+      <Path d="M70 170 Q59 164 53 174 L62 186 Q69 180 70 190" fill="#E8622A" />
+      <Path d="M130 170 Q141 164 146 174 L137 186 Q131 180 130 190" fill="#E8622A" />
+      <Rect x="133" y="175" width="9" height="28" rx="4.5" fill="#E8622A" />
+      <Rect x="136" y="161" width="17" height="28" rx="4" fill="#1A1A1A" />
+      <Rect x="139" y="164" width="11" height="18" rx="2" fill="#5AABFF" />
+      <Circle cx="100" cy="140" r="21" fill="#F2C090" />
+      <Ellipse cx="100" cy="124" rx="21" ry="14" fill="#1A1A1A" />
+      <Rect x="79" y="124" width="8" height="28" rx="4" fill="#1A1A1A" />
+    </Svg>
+  );
+}
 
 export default function SplashOne() {
   const router = useRouter();
-  
+
   return (
-    <View className="flex-1 bg-[#F6F4F1]">
+    <View className="flex-1 bg-[#FFFDF8]">
       <Pressable
         onPress={() => router.replace("/(auth)")}
-        className="absolute top-12 right-8 z-10 px-3 py-2"
+        className="absolute top-12 right-6 z-10 p-2"
       >
-        <Text className="text-sm font-ibm_medium text-gray">Skip</Text>
+        <Text className="text-sm text-[#302a2a] font-ibm_regular">Skip</Text>
       </Pressable>
 
-      <View className="flex-1 justify-center items-center pt-20">
-        <View className="relative w-72 h-72 items-center justify-center mb-4">
-          <View className="absolute w-64 h-64 rounded-3xl bg-[#2F2F2F] opacity-5 rotate-12" />
-          <View className="absolute w-56 h-56 rounded-3xl bg-[#2F2F2F] opacity-10 -rotate-6" />
-          
-          <View className="w-60 h-60 rounded-3xl bg-white shadow-lg items-center justify-center">
-            <View className="items-center">
-              <View className="w-32 h-40 bg-[#2F2F2F] rounded-2xl mb-4 items-center justify-center">
-                <View className="w-24 h-32 bg-[#F6F4F1] rounded-xl items-center justify-center">
-                  <Text className="text-5xl mb-2">🛍️</Text>
-                  <View className="flex-row gap-1">
-                    <View className="w-2 h-2 rounded-full bg-[#2F2F2F]" />
-                    <View className="w-2 h-2 rounded-full bg-[#8E8E8E]" />
-                    <View className="w-2 h-2 rounded-full bg-[#8E8E8E]" />
-                  </View>
-                </View>
-              </View>
-              
-              <View className="flex-row gap-2">
-                <View className="bg-[#F6F4F1] px-3 py-1.5 rounded-full">
-                  <Text className="text-xs font-medium text-[#2F2F2F]">✨ Clean</Text>
-                </View>
-                <View className="bg-[#F6F4F1] px-3 py-1.5 rounded-full">
-                  <Text className="text-xs font-medium text-[#2F2F2F]">🎨 Modern</Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          
-          <View className="absolute -top-4 -right-4 bg-[#2F2F2F] w-16 h-16 rounded-full items-center justify-center shadow-md">
-            <Text className="text-2xl">✓</Text>
-          </View>
-        </View>
-
-        <View className="mt-8 items-center px-8">
-          <Text className="text-[32px] font-bold text-[#2F2F2F] mb-3 text-center">
-            Modern Shopping
-          </Text>
-          <Text className="text-base text-[#8E8E8E] text-center leading-[24px]">
-            Experience fashion-forward design{"\n"}
-            with intuitive, minimal interface
-          </Text>
-        </View>
+      <View style={{ height: height * 0.70 }} className="w-full bg-[#FFF6E8]">
+        <WomanSittingIllustration />
       </View>
 
-      <View className="flex-row items-center justify-center gap-2 mb-8">
-        <View className="w-8 h-1.5 bg-[#2F2F2F] rounded-full" />
-        <View className="w-8 h-1.5 bg-[#E5E5E5] rounded-full" />
-        <View className="w-8 h-1.5 bg-[#E5E5E5] rounded-full" />
-      </View>
+      <View className="flex-1 bg-[#FFFDF8] px-7 pt-6 pb-9 items-center justify-between">
+        <Text className="text-[22px] font-ibm_bold text-[#1A1A1A] text-center tracking-tight">
+          Order in the mobile app
+        </Text>
 
-      <View className="px-6 pb-10 flex-row items-center justify-center gap-4">
+        <Text className="text-sm text-[#999999] text-center leading-6 font-ibm_medium">
+          Choose clothes online from home and{"\n"}place an order. Get bonuses!
+        </Text>
+
+        <View className="flex-row items-center gap-2">
+          <View className="w-6 h-2 rounded-full bg-[#1A1A1A]" />
+          <View className="w-2 h-2 rounded-full bg-[#E0E0E0]" />
+          <View className="w-2 h-2 rounded-full bg-[#E0E0E0]" />
+        </View>
+
         <Pressable
           onPress={() => router.push("/(splash)/first")}
-          className="bg-[#2F2F2F] py-5 rounded-3xl mb-3 shadow-lg active:opacity-90 flex-1"
+          className="w-full bg-[#1A1A1A] rounded-2xl py-5 items-center active:opacity-80"
         >
-          <Text className="text-sm font-ibm_medium text-white text-center">
-            Welcome
-          </Text>
+          <Text className="text-white text-base font-ibm_medium tracking-wide">Next</Text>
         </Pressable>
       </View>
     </View>

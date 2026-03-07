@@ -1,133 +1,87 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Dimensions } from "react-native";
 import { useRouter } from "expo-router";
+import Svg, { Path, Circle, Rect, Ellipse } from "react-native-svg";
+
+const { height } = Dimensions.get("window");
+
+function WomanShoppingIllustration() {
+  return (
+    <Svg width="100%" height="100%" viewBox="0 0 375 380" fill="none" preserveAspectRatio="xMidYMid meet">
+      <Rect width="375" height="380" fill="#FFF6E8" />
+      <Ellipse cx="187" cy="370" rx="150" ry="28" fill="#F0E4CC" opacity="0.8" />
+      <Ellipse cx="187" cy="200" rx="120" ry="160" fill="#EEF0FF" opacity="0.6" />
+      <Path d="M120 195 Q160 185 195 195 L208 330 Q160 340 118 330 Z" fill="#2E5DD4" />
+      <Rect x="122" y="194" width="72" height="12" rx="6" fill="#F2D240" />
+      <Ellipse cx="156" cy="168" rx="26" ry="30" fill="#2E5DD4" />
+      <Path d="M130 168 Q116 158 109 170 L120 184 Q130 176 130 188" fill="#2E5DD4" />
+      <Path d="M182 168 Q196 158 203 170 L192 184 Q182 176 182 188" fill="#2E5DD4" />
+      <Rect x="96" y="170" width="9" height="44" rx="4.5" fill="#2E5DD4" transform="rotate(-10 100 170)" />
+      <Rect x="56" y="196" width="40" height="46" rx="7" fill="#E8622A" />
+      <Path d="M64 196 Q64 182 76 182 Q88 182 88 196" stroke="#1A1A1A" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <Rect x="63" y="210" width="24" height="3" rx="1.5" fill="#FF8A52" />
+      <Rect x="63" y="218" width="18" height="3" rx="1.5" fill="#FF8A52" />
+      <Rect x="63" y="226" width="20" height="3" rx="1.5" fill="#FF8A52" />
+      <Rect x="186" y="160" width="9" height="48" rx="4.5" fill="#2E5DD4" transform="rotate(15 190 160)" />
+      <Rect x="208" y="168" width="38" height="44" rx="7" fill="#1A1A1A" />
+      <Path d="M216 168 Q216 154 227 154 Q238 154 238 168" stroke="#555" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <Rect x="215" y="182" width="20" height="3" rx="1.5" fill="#404040" />
+      <Rect x="215" y="190" width="15" height="3" rx="1.5" fill="#404040" />
+      <Rect x="125" y="326" width="18" height="36" rx="9" fill="#1A1A1A" transform="rotate(-6 134 326)" />
+      <Rect x="158" y="326" width="18" height="36" rx="9" fill="#1A1A1A" transform="rotate(6 167 326)" />
+      <Ellipse cx="126" cy="364" rx="16" ry="7" fill="#F2D240" />
+      <Rect x="120" y="366" width="5" height="10" rx="2.5" fill="#F2D240" />
+      <Ellipse cx="168" cy="360" rx="16" ry="7" fill="#F2D240" />
+      <Rect x="162" y="362" width="5" height="10" rx="2.5" fill="#F2D240" />
+      <Circle cx="155" cy="126" r="22" fill="#F2C090" />
+      <Ellipse cx="155" cy="112" rx="26" ry="16" fill="#E8622A" />
+      <Ellipse cx="155" cy="108" rx="18" ry="11" fill="#E8622A" />
+      <Ellipse cx="155" cy="140" rx="22" ry="9" fill="#1A1A1A" />
+      <Rect x="133" y="130" width="8" height="18" rx="4" fill="#1A1A1A" />
+      <Rect x="174" y="130" width="8" height="18" rx="4" fill="#1A1A1A" />
+      <Circle cx="82" cy="80" r="5" fill="#F2D240" opacity="0.85" />
+      <Circle cx="280" cy="90" r="4" fill="#E8622A" opacity="0.7" />
+      <Circle cx="300" cy="200" r="3" fill="#2E5DD4" opacity="0.6" />
+      <Path d="M60 140 L63 132 L66 140 L60 140Z" fill="#2E5DD4" opacity="0.55" />
+    </Svg>
+  );
+}
 
 export default function SplashThree() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 bg-[#F6F4F1]">
+    <View className="flex-1 bg-[#FFFDF8]">
       <Pressable
         onPress={() => router.replace("/(auth)")}
-        className="absolute top-12 right-8 z-10 px-3 py-2"
+        className="absolute top-12 right-6 z-10 p-2"
       >
-        <Text className="text-sm font-ibm_medium text-gray">Skip</Text>
+        <Text className="text-sm text-[#302a2a] font-ibm_regular">Skip</Text>
       </Pressable>
 
-      <View className="flex-1 justify-center items-center pt-20">
-        <View className="relative w-72 h-72 items-center justify-center mb-4">
-          <View className="absolute w-72 h-72 rounded-full bg-[#2F2F2F] opacity-5" />
-          <View className="absolute w-60 h-60 rounded-full bg-[#2F2F2F] opacity-10" />
-          <View className="absolute w-48 h-48 rounded-full bg-[#2F2F2F] opacity-15" />
-
-          <View className="w-64 h-64 rounded-full bg-white shadow-lg items-center justify-center relative overflow-hidden">
-            <View className="items-center">
-              <View className="w-24 h-24 bg-[#2F2F2F] rounded-full items-center justify-center mb-4">
-                <Text className="text-5xl">✓</Text>
-              </View>
-
-              <View className="flex-row gap-3 mb-3">
-                <View className="w-12 h-12 bg-[#F6F4F1] rounded-xl items-center justify-center">
-                  <Text className="text-xl">🛒</Text>
-                </View>
-                <View className="w-12 h-12 bg-[#F6F4F1] rounded-xl items-center justify-center">
-                  <Text className="text-xl">💳</Text>
-                </View>
-                <View className="w-12 h-12 bg-[#F6F4F1] rounded-xl items-center justify-center">
-                  <Text className="text-xl">📦</Text>
-                </View>
-              </View>
-
-              <View className="flex-row gap-2">
-                <View className="bg-[#2F2F2F] px-2.5 py-1 rounded-full">
-                  <Text className="text-[10px] font-semibold text-white">
-                    Fast
-                  </Text>
-                </View>
-                <View className="bg-[#2F2F2F] px-2.5 py-1 rounded-full">
-                  <Text className="text-[10px] font-semibold text-white">
-                    Secure
-                  </Text>
-                </View>
-                <View className="bg-[#2F2F2F] px-2.5 py-1 rounded-full">
-                  <Text className="text-[10px] font-semibold text-white">
-                    Easy
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          <View className="absolute top-8 left-4">
-            <Text className="text-2xl">✨</Text>
-          </View>
-          <View className="absolute bottom-12 right-8">
-            <Text className="text-xl">⭐</Text>
-          </View>
-          <View className="absolute top-16 right-2">
-            <Text className="text-lg">💫</Text>
-          </View>
-        </View>
-
-        <View className="mt-8 items-center px-8">
-          <Text className="text-[32px] font-bold text-[#2F2F2F] mb-3 text-center">
-            Shop Smarter
-          </Text>
-          <Text className="text-base text-[#8E8E8E] text-center leading-[24px] mb-2">
-            Seamless checkout, secure payments{"\n"}
-            and fast delivery guaranteed
-          </Text>
-
-          <View className="mt-6 gap-3">
-            <View className="flex-row items-center gap-3">
-              <View className="w-6 h-6 bg-[#2F2F2F] rounded-full items-center justify-center">
-                <Text className="text-white text-xs font-bold">✓</Text>
-              </View>
-              <Text className="text-sm text-[#2F2F2F] font-medium">
-                Easy one-tap checkout
-              </Text>
-            </View>
-            <View className="flex-row items-center gap-3">
-              <View className="w-6 h-6 bg-[#2F2F2F] rounded-full items-center justify-center">
-                <Text className="text-white text-xs font-bold">✓</Text>
-              </View>
-              <Text className="text-sm text-[#2F2F2F] font-medium">
-                Secure payment protection
-              </Text>
-            </View>
-            <View className="flex-row items-center gap-3">
-              <View className="w-6 h-6 bg-[#2F2F2F] rounded-full items-center justify-center">
-                <Text className="text-white text-xs font-bold">✓</Text>
-              </View>
-              <Text className="text-sm text-[#2F2F2F] font-medium">
-                Real-time order tracking
-              </Text>
-            </View>
-          </View>
-        </View>
+      <View style={{ height: height * 0.70 }} className="w-full bg-[#FFF6E8]">
+        <WomanShoppingIllustration />
       </View>
 
-      <View className="flex-row items-center justify-center gap-2 mb-8">
-        <View className="w-8 h-1.5 bg-[#E5E5E5] rounded-full" />
-        <View className="w-8 h-1.5 bg-[#E5E5E5] rounded-full" />
-        <View className="w-8 h-1.5 bg-[#2F2F2F] rounded-full" />
-      </View>
+      <View className="flex-1 bg-[#FFFDF8] px-7 pt-6 pb-9 items-center justify-between">
+        <Text className="text-[22px] font-ibm_bold text-[#1A1A1A] text-center tracking-tight">
+          Wear clothes with pleasure!
+        </Text>
 
-      <View className="px-6 pb-10 flex-row items-center justify-center gap-4">
-        <Pressable
-          onPress={() => router.push("/(splash)/first")}
-          className="bg-white py-5 rounded-3xl mb-4 shadow-lg active:opacity-90 flex-1 border border-[#E5E5E5]"
-        >
-          <Text className="text-sm font-ibm_medium text-[#9CA3AF] text-center">
-            Back
-          </Text>
-        </Pressable>
+        <Text className="text-sm text-[#999999] text-center leading-6 font-ibm_medium">
+          We have clothes for every season{"\n"}and for every taste
+        </Text>
+
+        <View className="flex-row items-center gap-2">
+          <View className="w-2 h-2 rounded-full bg-[#E0E0E0]" />
+          <View className="w-2 h-2 rounded-full bg-[#E0E0E0]" />
+          <View className="w-6 h-2 rounded-full bg-[#1A1A1A]" />
+        </View>
+
         <Pressable
           onPress={() => router.replace("/(auth)")}
-          className="bg-[#2F2F2F] py-5 rounded-3xl mb-4 shadow-lg active:opacity-90 flex-1"
+          className="w-full bg-[#1A1A1A] rounded-2xl py-5 items-center active:opacity-80"
         >
-          <Text className="text-[17px] font-semibold text-white text-center tracking-wide">
-            Continue
-          </Text>
+          <Text className="text-white text-base font-ibm_medium tracking-wide">Get Started!</Text>
         </Pressable>
       </View>
     </View>
